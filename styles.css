@@ -1,4 +1,16 @@
+.container {
+    text-align: center;
+    margin: 0;
+}
+
+body {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
 .board {
+    margin:auto;
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-gap: 5px;

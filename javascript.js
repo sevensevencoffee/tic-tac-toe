@@ -139,11 +139,12 @@ function ScreenController() {
         const activePlayer = game.getActivePlayer();
         const winner = game.checkWinner();
 
-        playerTurnDiv.textContent = `${activePlayer.name}'s turn`
         if(winner) {
+            playerTurnDiv.textContent = `Game over!`
             winnerDiv.textContent = `${winner.name} wins!`;
         } else {
             winnerDiv.textContent = "";
+            playerTurnDiv.textContent = `${activePlayer.name}'s turn`
         }
 
         board.forEach((row, rowIndex) => {
