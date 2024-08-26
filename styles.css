@@ -21,3 +21,12 @@ body {
     height: 100px;
     font-size: 24px;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    text-align: left;
+}

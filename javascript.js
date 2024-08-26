@@ -49,6 +49,9 @@ function GameController(
 ){
     const board = Gameboard();
 
+    const getName1 = document.querySelector("#name1");
+    const getName2 = document.querySelector("#name2");
+
     const players = [
         {
             name: playerOneName,
@@ -122,7 +125,11 @@ function GameController(
         playRound,
         getActivePlayer,
         getBoard: board.getBoard,
-        checkWinner
+        checkWinner,
+        updatePlayerNames: () => {
+            players[0].name = getName1.value || "X";
+            players[1].name = getName2.value || "O";
+        }
     };
 }
 
@@ -131,6 +138,11 @@ function ScreenController() {
     const playerTurnDiv = document.querySelector(".turn");
     const boardDiv = document.querySelector(".board");
     const winnerDiv = document.querySelector(".winner");
+
+    const getName1 = document.querySelector("#name1");
+    const getName2 = document.querySelector("#name2");
+    getName1.addEventListener("change", updateNames);
+    getName2.addEventListener("change", updateNames);
 
     const updateScreen = () => {
         boardDiv.textContent = "";
@@ -167,6 +179,11 @@ function ScreenController() {
             game.playRound(selectedRow, selectedColumn);
             updateScreen();
         }
+    }
+
+    function updateNames() {
+        game.updatePlayerNames();
+        updateScreen();
     }
 
     boardDiv.addEventListener("click", clickHandleButton);
